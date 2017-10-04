@@ -13,3 +13,11 @@
 %h3 Pitch
 .markdown{ data: { 'field-id' => 'proposal_pitch' } }
   =proposal.pitch
+
+  - if proposal.custom_fields.any?
+    %h3 Custom fields
+    - proposal.proposal_data[:custom_fields].select do |key,value|
+      %h4= key.capitalize
+      %div
+      = value.capitalize
+      %div
