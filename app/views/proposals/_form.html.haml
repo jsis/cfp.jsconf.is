@@ -40,16 +40,19 @@
         {}, {class: 'multiselect proposal-tags', multiple: true }
 
     - if event.custom_fields.any?
-      %h3 Additional information
-      %p
-        This information is intented for the organizers, and will be
-        %strong hidden
-        from the review committee.
+      .panel.panel-default
+        .panel-heading
+          %h2.panel-title Additional information
+        .panel-body
+          %p
+            This information is intented for the organizers, and will be
+            %strong hidden
+            from the review committee.
 
-    - event.custom_fields.each do |custom_field|
-      .form-group
-      = f.label custom_field
-      = text_field_tag "proposal[custom_fields][#{custom_field}]", proposal.custom_fields[custom_field], class: "form-control"
+          - event.custom_fields.each do |custom_field|
+            .form-group
+            = f.label custom_field
+            = text_field_tag "proposal[custom_fields][#{custom_field}]", proposal.custom_fields[custom_field], class: "form-control"
 
 
     = render partial: 'speakers/fields', locals: { f: f }
