@@ -1,7 +1,7 @@
 .speaker.clearfix
   = f.simple_fields_for :speakers, f.object.speakers do |speaker_fields|
     - speaker = speaker_fields.object.decorate
-    .panel.panel-warning
+    .panel.panel-info
       .panel-heading
         %h2.panel-title= speaker.name_and_email
       .panel-body
