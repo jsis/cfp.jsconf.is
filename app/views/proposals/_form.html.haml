@@ -31,10 +31,10 @@
 
         - if event.proposal_tags.any?
           %label.text.optional.control-label Tags
-          %p.help-block Please select all tags you feel apply to your proposal.
           = f.select :tags,
             options_for_select(event.proposal_tags, proposal.object.tags),
             {}, {class: 'multiselect proposal-tags', multiple: true }
+          %p.help-block Please select all tags you feel apply to your proposal.
 
         = f.input :details, input_html: { class: 'watched', rows: 10 },
           placeholder: 'Explain the theme and flow of your talk. What are the intended audience takeaways?',
@@ -47,7 +47,6 @@
   %fieldset.col-md-6
     = render partial: 'preview', locals: { proposal: proposal }
 
-  %fieldset.col-md-6
     - if event.custom_fields.any?
       .panel.panel-default
         .panel-heading
@@ -63,7 +62,6 @@
             = f.label custom_field
             = text_field_tag "proposal[custom_fields][#{custom_field}]", proposal.custom_fields[custom_field], class: "form-control"
 
-  %fieldset.col-md-6
     = render partial: 'speakers/fields', locals: { f: f }
 
     .form-submit.clearfix
