@@ -1,5 +1,5 @@
 .row
-  %fieldset.col-md-6
+  %fieldset.col-md-12
     %p
       Read the #{link_to 'guidelines', event_path(event.slug)} to maximize
       your chance of approval.
@@ -11,6 +11,7 @@
       %a{href: 'https://help.github.com/articles/github-flavored-markdown'}
         GitHub Flavored Markdown.
 
+  %fieldset.col-md-6
     .panel.panel-default
       .panel-heading
         %h2.panel-title For website
@@ -19,6 +20,7 @@
         = proposal.title_input(f)
         = proposal.abstract_input(f)
 
+  %fieldset.col-md-6
     .panel.panel-default
       .panel-heading
         %h2.panel-title For Review Committee
@@ -37,7 +39,7 @@
           hint: 'Explain why this talk should be considered and what makes you qualified to speak on the topic.'
 
         - if event.proposal_tags.any?
-          %h3 Tags
+          %h4 Tags
           %p Please select all tags you feel apply to your proposal.
           = f.select :tags,
             options_for_select(event.proposal_tags, proposal.object.tags),
@@ -62,6 +64,7 @@
 
     = render partial: 'speakers/fields', locals: { f: f }
 
+  %fieldset.col-md-6
     = render partial: 'preview', locals: { proposal: proposal }
 
     .form-submit.clearfix
