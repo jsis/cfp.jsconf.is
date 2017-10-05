@@ -1,12 +1,9 @@
 .speaker.clearfix
   = f.simple_fields_for :speakers, f.object.speakers do |speaker_fields|
     - speaker = speaker_fields.object.decorate
-    = link_to (edit_profile_path) do
-      = speaker.gravatar
-      %h4
-        = speaker.name_and_email
-        %br
-        .help-block.small Edit my profile
+    = speaker.gravatar
+    %h4
+      = speaker.name_and_email
 
     .clearfix
     %p
