@@ -2,23 +2,22 @@
   .row
     .col-md-12
       .toolbox.pull-right
-        %date#updated_subheader= proposal.created_in_words
-        %date#updated_subheader= proposal.updated_in_words
         .btn-group
           =link_to(reviewer_event_proposals_path, class: "btn btn-primary") do
             &laquo; Return to Proposals
           =link_to "Next Proposal", reviewer_event_proposal_path(uuid: "PLACEHOLDER"), class: "next-proposal btn btn-primary", data: {"proposal-uuid" => proposal.uuid }
 
-      %h1= proposal.title
+      .jumbotron
+        %h1= proposal.title
 
-      .tags= proposal.tags
+        %date#updated_subheader= proposal.created_in_words
+        %date#updated_subheader= proposal.updated_in_words
+        %p.tags= proposal.tags
 
 
   .row
     .col-md-4
-      .panel.panel-default
-        .panel-body
-          = render partial: 'proposals/contents', locals: { proposal: proposal }
+      = render partial: 'proposals/contents_panels', locals: { proposal: proposal }
 
     .col-md-4
       .panel.panel-primary
@@ -53,7 +52,7 @@
         .panel.panel-primary
           .panel-heading
             %h4.panel-title Internal Comments
-            %p.help-block These comments are only visible to other reviews and organizers
           .panel-body
             = render partial: 'proposals/comments',
               locals: { proposal: proposal, comments: proposal.internal_comments }
+            %p.help-block These comments are only visible to other reviews and organizers

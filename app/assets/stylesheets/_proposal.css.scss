@@ -54,6 +54,18 @@
       margin-top: 0;
     }
   }
+
+  .jumbotron {
+    date {
+      display: block;
+
+      font-size: 0.8em;
+
+      text-align: right;
+
+      color: #737373;
+    }
+  }
 }
 
 #copy-emails {
@@ -97,16 +109,7 @@ ul {
 }
 
 .toolbox {
-  margin: 35px 0;
-  date {
-    display: block;
-
-    font-size: 0.8em;
-
-    text-align: right;
-
-    color: #737373;
-  }
+  margin: 14px;
 }
 
 input#email {

@@ -1,0 +1,27 @@
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title Title
+  .panel-body
+    .markdown{ data: { 'field-id' => 'proposal_title' } }
+      = proposal.title
+
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title Abstract
+  .panel-body
+    .markdown{ data: { 'field-id' => 'proposal_abstract' } }
+      = proposal.abstract
+
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title Details
+  .panel-body
+    .markdown{ data: { 'field-id' => 'proposal_details' } }
+      = proposal.details
+
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title Pitch
+  .panel-body
+    .markdown{ data: { 'field-id' => 'proposal_pitch' } }
+      =proposal.pitch
