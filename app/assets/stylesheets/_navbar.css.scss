@@ -1,6 +1,8 @@
 .navbar-jsconf {
   min-height: 70px;
 
+  font-size: 16px;
+
   border: none;
   background-color: #f3df49;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
@@ -15,13 +17,20 @@
     }
   }
 
-  .navbar-nav > li > a {
-    line-height: 40px;
-
-    color: inherit;
-
-    &:focus {
+  .navbar-nav {
+     > .open > a,
+     > .open > a:hover,
+     > .open > a:focus {
       background-color: rgba(0,0,0,0.05);
+    }
+     > li > a {
+      line-height: 40px;
+
+      color: inherit;
+
+      &:focus {
+        background-color: rgba(0,0,0,0.05);
+      }
     }
   }
 }
