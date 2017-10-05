@@ -1,9 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700);
 
 body {
-  padding-top: 60px;
+  padding-top: 100px;
 
   font-family: Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-weight: 300;
 }
 .navbar {
   height: 60px;
@@ -14,16 +15,19 @@ body {
 }
 
 .alert-viewer-mode {
-  padding: 10px 0;
   margin-bottom: 20px;
-  background-color: lighten(#E69400, 25%);
+  padding: 10px 0;
+
   text-align: center;
+
+  background-color: lighten(#e69400, 25%);
 }
 
 .form-submit {
-  border-top: 1px solid #ccc;
   margin: 1em 0 5em;
   padding-top: 1em;
+
+  border-top: 1px solid #cccccc;
 }
 .help-block {
   font-size: 0.9em;
@@ -37,14 +41,15 @@ body {
 .speaker {
   margin-top: 2em;
 }
-.speaker img, .speaker-image {
+.speaker img,
+.speaker-image {
   margin: 0 0.5em 0.8em 0;
 }
 .tag-list input {
   vertical-align: top;
 }
 .participant {
-  margin-bottom:1em;
+  margin-bottom: 1em;
 }
 
 h4 {
@@ -73,17 +78,19 @@ h3.tags {
 }
 
 .admin_nav {
-  margin: 9px -35px 0 0;
   position: relative;
   right: -20px;
+
+  margin: 9px -35px 0 0;
   .glyphicon-cog {
     font-size: 20px;
+
     color: black;
   }
 }
 
 .navbar-inverse .navbar-nav > li > a.review_nav {
-  color: #E6E600;
+  color: #e6e600;
 }
 
 .navbar-inverse .navbar-nav > li > a.review_nav:hover,
@@ -95,7 +102,7 @@ h3.tags {
 }
 
 .navbar-inverse .navbar-nav > li > a.organize_nav {
-  color: #E69400;
+  color: #e69400;
 }
 
 .navbar-inverse .navbar-nav > li > a.organize_nav:hover,
@@ -121,14 +128,16 @@ h3.tags {
   z-index: 1;
   top: 31px;
   left: 31px;
+
   color: #d9534f;
 }
 
 .tooltip-inner {
   margin-top: 4px;
-  background-color: #f2dede;
-  border-color: #ebccd1;
+
   color: #a94442;
+  border-color: #ebccd1;
+  background-color: #f2dede;
 }
 
 .tooltip-arrow {
@@ -138,21 +147,26 @@ h3.tags {
 // end demographic notification
 
 @mixin icon-generic {
-  background-size: 25px 25px;
-  background-repeat: no-repeat;
-  vertical-align: middle;
   display: inline-block;
-  height: 25px;
+
   width: 25px;
+  height: 25px;
+
+  vertical-align: middle;
+
+  background-repeat: no-repeat;
+  background-size: 25px 25px;
 }
 
 .icon-twitter {
   background-image: url(twitter_32.png);
+
   @include icon-generic;
 }
 
 .icon-github {
   background-image: url(github_32.png);
+
   @include icon-generic;
 }
 
@@ -167,7 +181,10 @@ h3.tags {
     padding: 3px;
     height: inherit;
   }
-  td, th { text-align: center; }
+  td,
+  th {
+    text-align: center;
+  }
 }
 
 // Back Button
@@ -187,6 +204,7 @@ h3.tags {
 
 #back_link {
   float: right;
+
   margin-top: 33px;
 }
 
@@ -195,8 +213,11 @@ h3.tags {
 
   li {
     display: block;
-    &:first-child { padding-left: 5px; }
+
     padding-bottom: 3px;
+    &:first-child {
+      padding-left: 5px;
+    }
   }
 }
 

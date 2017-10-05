@@ -1,6 +1,7 @@
 .navbar-jsconf {
   min-height: 70px;
 
+  border: none;
   background-color: #f3df49;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
 
@@ -16,6 +17,10 @@
 
   .navbar-nav > li > a {
     line-height: 40px;
+
+    &:focus {
+      background-color: rgba(0,0,0,0.05);
+    }
   }
 }
 

@@ -13,9 +13,11 @@
         if your proposal is approved.
 
       %p
-        Note that you can also update this bio at any time in
+        Note that you can update your bio and other settings at any time in
         %a{ href: '/profile/edit' } your profile
 
       = speaker_fields.hidden_field :person_id, value: speaker.person_id
 
+      %label.text.optional.control-label Bio
+      %br
       = speaker.bio
