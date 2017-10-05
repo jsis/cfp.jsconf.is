@@ -1,14 +1,30 @@
 .navbar-jsconf {
+  min-height: 70px
   background-color: #f3df49;
+
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+  .navbar-header > .navbar-brand {
+    padding: 10px 10px;
+
+     + .navbar-brand {
+      margin-left: 0;
+
+      line-height: 50px;
+    }
+  }
+
+  .navbar-nav > li > a {
+    line-height: 40px;
+  }
 }
 
 @media (max-width: 690px) {
   .navbar-collapse {
-    background-color: #eee;
+    background-color: #eeeeee;
   }
   .navbar-nav li a.review_nav {
-    color: #999;
+    color: #999999;
   }
   .navbar-inverse .navbar-nav .open a:focus {
     background-color: rgba(0,0,0,0.05);

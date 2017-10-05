@@ -22,11 +22,11 @@
       .container
         .navbar-header
           .navbar-brand
-            %img{ src: "https://2018.jsconf.is/81143989da17dbd60607f9cf0691a0e0.svg" }
-          %button.navbar-toggle{ type: "button", data: { toggle: "collapse", target: ".navbar-collapse" } }
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
+            %img{ width: "70", src: "https://2018.jsconf.is/81143989da17dbd60607f9cf0691a0e0.svg" }
+          -# %button.navbar-toggle{ type: "button", data: { toggle: "collapse", target: ".navbar-collapse" } }
+          -#   %span.icon-bar
+          -#   %span.icon-bar
+          -#   %span.icon-bar
           - if event && event.slug
             = link_to event.name, event_path(slug: event.slug), class: 'navbar-brand'
           - else
