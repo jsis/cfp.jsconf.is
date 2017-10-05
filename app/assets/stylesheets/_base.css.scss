@@ -3,12 +3,16 @@
 body {
   padding-top: 70px;
 
-  font-family: Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;
   font-size: 16px;
   font-weight: 300;
   line-height: 1.5;
 
   color: #2e2e2c;
+
+  &,
+  * {
+    font-family: Roboto,Helvetica Neue,Helvetica,Arial,sans-serif !important;
+  }
 
   b,
   strong {

@@ -1,5 +1,5 @@
 - if comments.empty?
-  %p.help-block None
+  %p.help-block No comments yet
 
 - comments.order(:created_at).each do |comment|
   .comment.markdown{ class: choose_class_for(comment) }

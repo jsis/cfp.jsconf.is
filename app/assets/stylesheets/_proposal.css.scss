@@ -48,6 +48,12 @@
     margin-bottom: 7px;
     padding-left: 10px;
   }
+
+  .panel-body {
+    :first-child {
+      margin-top: 0;
+    }
+  }
 }
 
 #copy-emails {
@@ -91,7 +97,7 @@ ul {
 }
 
 .toolbox {
-  margin: 0;
+  margin: 35px 0;
   date {
     display: block;
 

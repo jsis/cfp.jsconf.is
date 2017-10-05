@@ -1,8 +1,6 @@
 #proposal
   .row
     .col-md-12
-      %h1= proposal.title
-
       .toolbox.pull-right
         %date#updated_subheader= proposal.created_in_words
         %date#updated_subheader= proposal.updated_in_words
@@ -10,6 +8,8 @@
           =link_to(reviewer_event_proposals_path, class: "btn btn-primary") do
             &laquo; Return to Proposals
           =link_to "Next Proposal", reviewer_event_proposal_path(uuid: "PLACEHOLDER"), class: "next-proposal btn btn-primary", data: {"proposal-uuid" => proposal.uuid }
+
+      %h1= proposal.title
 
       .tags= proposal.tags
 
@@ -24,10 +24,10 @@
       .panel.panel-primary
         .panel-heading
           %h4.panel-title Public Comments
-          %p.help-block These comments are visible to both reviewers and the speaker.
         .panel-body
           = render partial: 'proposals/comments',
             locals: { proposal: proposal, comments: proposal.public_comments }
+          %p.help-block These comments are visible to both reviewers and the speaker.
 
     .col-md-4
       .panel.panel-primary
