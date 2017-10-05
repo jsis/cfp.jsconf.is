@@ -18,6 +18,8 @@
   .navbar-nav > li > a {
     line-height: 40px;
 
+    color: inherit;
+
     &:focus {
       background-color: rgba(0,0,0,0.05);
     }
