@@ -8,27 +8,27 @@
           =link_to "Next Proposal", reviewer_event_proposal_path(uuid: "PLACEHOLDER"), class: "next-proposal btn btn-primary", data: {"proposal-uuid" => proposal.uuid }
 
       .jumbotron
-        %h1= proposal.title
+        %h2= proposal.title
+        %p
+          %date#updated_subheader= proposal.created_in_words
+          %date#updated_subheader= proposal.updated_in_words
+        %p.tags
+          %span.label.label-default Tags:
+          = proposal.tags
 
-        %date#updated_subheader= proposal.created_in_words
-        %date#updated_subheader= proposal.updated_in_words
-        %p.tags= proposal.tags
 
-
+  = render partial: 'proposals/contents_reviewer', locals: { proposal: proposal }
   .row
-    .col-md-4
-      = render partial: 'proposals/contents_panels', locals: { proposal: proposal }
-
     .col-md-4
       .panel.panel-primary
         .panel-heading
-          %h4.panel-title Public Comments
-        .panel-body
-          = render partial: 'proposals/comments',
-            locals: { proposal: proposal, comments: proposal.public_comments }
-          %p.help-block These comments are visible to both reviewers and the speaker.
+          %h4.panel-title
+            Public Comments
+            %small Visible to Speaker, Reviewers & Organizers
+        = render partial: 'proposals/comments',
+          locals: { proposal: proposal, comments: proposal.public_comments }
 
-    .col-md-4
+    .col-md-8
       .panel.panel-primary
         .panel-heading
           %h4.panel-title Review
@@ -42,17 +42,15 @@
             = render partial: 'shared/proposals/rating_form',
               locals: { event: event, proposal: proposal, rating: rating }
 
-          %h3 Tags
+          %hr
           = render partial: 'shared/proposals/tags_form',
             locals: { event: event, proposal: proposal }
-
-
 
       .internal-comments{ style: proposal.internal_comments_style }
         .panel.panel-primary
           .panel-heading
-            %h4.panel-title Internal Comments
-          .panel-body
-            = render partial: 'proposals/comments',
-              locals: { proposal: proposal, comments: proposal.internal_comments }
-            %p.help-block These comments are only visible to other reviews and organizers
+            %h4.panel-title
+              Internal Comments
+              %small Visible to Reviewers & Organizers
+          = render partial: 'proposals/comments',
+            locals: { proposal: proposal, comments: proposal.internal_comments }
