@@ -12,15 +12,20 @@
         GitHub Flavored Markdown.
 
   %fieldset.col-md-6
-    .panel.panel-default
+    .panel.panel-primary
       .panel-heading
-        %h2.panel-title For website
+        %h2.panel-title For our website
       .panel-body
-        %p.help-block In case your talk will be selected.
+        %p.help-block
+          This content will be
+          %strong visible
+          to the review committee, as well as
+          %strong everyone else
+          if your proposal is approved.
         = proposal.title_input(f)
         = proposal.abstract_input(f)
 
-    .panel.panel-default
+    .panel.panel-primary
       .panel-heading
         %h2.panel-title For Review Committee
       .panel-body
@@ -28,13 +33,16 @@
           This content will
           %strong only
           be visible to the review committee.
+        %hr
 
         - if event.proposal_tags.any?
           %label.text.optional.control-label Tags
+          %br
           = f.select :tags,
             options_for_select(event.proposal_tags, proposal.object.tags),
             {}, {class: 'multiselect proposal-tags', multiple: true }
           %p.help-block Please select all tags you feel apply to your proposal.
+          %br
 
         = f.input :details, input_html: { class: 'watched', rows: 10 },
           placeholder: 'Explain the theme and flow of your talk. What are the intended audience takeaways?',
@@ -46,9 +54,11 @@
 
   %fieldset.col-md-6
     = render partial: 'preview', locals: { proposal: proposal }
-
+%hr
+.row
+  %fieldset.col-md-6
     - if event.custom_fields.any?
-      .panel.panel-info
+      .panel.panel-primary
         .panel-heading
           %h2.panel-title Additional information
         .panel-body
@@ -62,6 +72,7 @@
             = f.label custom_field
             = text_field_tag "proposal[custom_fields][#{custom_field}]", proposal.custom_fields[custom_field], class: "form-control"
 
+  %fieldset.col-md-6
     = render partial: 'speakers/fields', locals: { f: f }
 
     .form-submit.clearfix

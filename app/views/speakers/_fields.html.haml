@@ -1,14 +1,18 @@
 .speaker.clearfix
   = f.simple_fields_for :speakers, f.object.speakers do |speaker_fields|
     - speaker = speaker_fields.object.decorate
-    .panel.panel-info
-      .panel-heading
-        %h2.panel-title= speaker.name_and_email
+    .panel.panel-primary
       .panel-body
+        %h4= speaker.name_and_email
+
         %p
           This information will be
           %strong hidden
-          from the review committee.
+          from the review committee, but visible to
+          %strong everyone
+          if your proposal is approved.
+
+        %p Note that you can also update this bio at any time in your profile
 
         = speaker_fields.hidden_field :person_id, value: speaker.person_id
 
