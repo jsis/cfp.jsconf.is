@@ -12,11 +12,10 @@
         %strong everyone
         if your proposal is approved.
 
-      %p Note that you can also update this bio at any time in your profile
+      %p
+        Note that you can also update this bio at any time in
+        %a{ href: '/profile/edit' } your profile
 
       = speaker_fields.hidden_field :person_id, value: speaker.person_id
 
-      = speaker_fields.input :bio, maxlength: :lookup,
-        placeholder: 'Bio for the event program.',
-        input_html: { value: speaker.bio, rows: 4 },
-        hint: 'Bio is limited to 500 characters.'
+      = speaker.bio
