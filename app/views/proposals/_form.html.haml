@@ -2,10 +2,17 @@
   %fieldset.col-md-6
     %p
       Read the #{link_to 'guidelines', event_path(event.slug)} to maximize
-      your chance of approval. Refrain from including any information that
-      would allow a reviewer to identify you. All fields support
+      your chance of approval.
+      %strong
+        Refrain from including any information that
+        might cause unintentional bias in the review process or would allow
+        a reviewer to identify you.
+      All fields support
       %a{href: 'https://help.github.com/articles/github-flavored-markdown'}
         GitHub Flavored Markdown.
+
+    %h3 For website
+    %p.help-block In case your talk will be selected.
     = proposal.title_input(f)
     = proposal.abstract_input(f)
 
@@ -27,12 +34,18 @@
   %fieldset.col-md-6
     - if event.proposal_tags.any?
       %h3 Tags
+      %p Please select all tags you feel apply to your proposal.
       = f.select :tags,
         options_for_select(event.proposal_tags, proposal.object.tags),
         {}, {class: 'multiselect proposal-tags', multiple: true }
 
     - if event.custom_fields.any?
-      %h3 Custom Fields
+      %h3 Additional information
+      %p
+        This information will be
+        %strong hidden
+        from the review committee.
+
     - event.custom_fields.each do |custom_field|
       .form-group
       = f.label custom_field
