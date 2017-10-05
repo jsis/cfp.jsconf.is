@@ -20,7 +20,6 @@
         = proposal.title_input(f)
         = proposal.abstract_input(f)
 
-  %fieldset.col-md-6
     .panel.panel-default
       .panel-heading
         %h2.panel-title For Review Committee
@@ -30,6 +29,13 @@
           %strong only
           be visible to the review committee.
 
+        - if event.proposal_tags.any?
+          %label.text.optional.control-label Tags
+          %p.help-block Please select all tags you feel apply to your proposal.
+          = f.select :tags,
+            options_for_select(event.proposal_tags, proposal.object.tags),
+            {}, {class: 'multiselect proposal-tags', multiple: true }
+
         = f.input :details, input_html: { class: 'watched', rows: 10 },
           placeholder: 'Explain the theme and flow of your talk. What are the intended audience takeaways?',
           hint: 'Include any pertinent details such as outlines, outcomes or intended audience.'
@@ -38,12 +44,8 @@
           placeholder: 'Why is this talk pertinent? What is your involvement in the topic?',
           hint: 'Explain why this talk should be considered and what makes you qualified to speak on the topic.'
 
-        - if event.proposal_tags.any?
-          %h4 Tags
-          %p Please select all tags you feel apply to your proposal.
-          = f.select :tags,
-            options_for_select(event.proposal_tags, proposal.object.tags),
-            {}, {class: 'multiselect proposal-tags', multiple: true }
+  %fieldset.col-md-6
+    = render partial: 'preview', locals: { proposal: proposal }
 
   %fieldset.col-md-6
     - if event.custom_fields.any?
@@ -61,11 +63,8 @@
             = f.label custom_field
             = text_field_tag "proposal[custom_fields][#{custom_field}]", proposal.custom_fields[custom_field], class: "form-control"
 
-
-    = render partial: 'speakers/fields', locals: { f: f }
-
   %fieldset.col-md-6
-    = render partial: 'preview', locals: { proposal: proposal }
+    = render partial: 'speakers/fields', locals: { f: f }
 
     .form-submit.clearfix
       %button.pull-right.btn.btn-primary.btn-lg{:type => "submit"} Submit Proposal
