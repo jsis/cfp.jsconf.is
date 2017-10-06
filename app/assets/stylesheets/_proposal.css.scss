@@ -18,11 +18,6 @@
   }
 
   span {
-    &.status {
-      display: inline-block;
-
-      margin: 0.3em 6.5em 0.4em 0;
-    }
     &.small-status {
       display: block;
       float: right;
@@ -122,6 +117,8 @@ ul {
 
 .toolbox {
   margin: 14px;
+
+  text-align: right;
 }
 
 .btn.save-comment {
@@ -137,10 +134,6 @@ span.disabled-state {
   padding: 3px 20px;
 
   color: grey;
-}
-
-#delete {
-  margin-right: 5px;
 }
 
 .row {

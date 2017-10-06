@@ -19,16 +19,7 @@
 
   = render partial: 'proposals/contents_reviewer', locals: { proposal: proposal }
   .row
-    .col-md-4
-      .panel.panel-primary
-        .panel-heading
-          %h4.panel-title
-            Public Comments
-            %small Visible to Speaker, Reviewers & Organizers
-        = render partial: 'proposals/comments',
-          locals: { proposal: proposal, comments: proposal.public_comments }
-
-    .col-md-4
+    .col-md-6
       .panel.panel-primary
         .panel-heading
           %h4.panel-title Review
@@ -46,7 +37,6 @@
           = render partial: 'shared/proposals/tags_form',
             locals: { event: event, proposal: proposal }
 
-    .col-md-4
       .internal-comments{ style: proposal.internal_comments_style }
         .panel.panel-primary
           .panel-heading
@@ -55,3 +45,12 @@
               %small Visible to Reviewers & Organizers
           = render partial: 'proposals/comments',
             locals: { proposal: proposal, comments: proposal.internal_comments }
+
+    .col-md-6
+      .panel.panel-primary
+        .panel-heading
+          %h4.panel-title
+            Public Comments
+            %small Visible to Speaker, Reviewers & Organizers
+        = render partial: 'proposals/comments',
+          locals: { proposal: proposal, comments: proposal.public_comments }
