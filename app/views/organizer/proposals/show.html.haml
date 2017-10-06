@@ -10,9 +10,6 @@
               Edit Proposal
           =link_to "Next Proposal", organizer_event_proposal_path(uuid: "PLACEHOLDER"), class: "next-proposal btn btn-success", data: {"proposal-uuid" => proposal.uuid }
 
-        #state_buttons.btn-group.clearfix
-          = proposal.state_buttons
-
         - if proposal.organizer_confirm
           .btn-group.clearfix
             = link_to "Confirm for Speaker", confirm_proposal_path(slug: proposal.event.slug, uuid: proposal), class: "btn btn-primary"
@@ -28,6 +25,9 @@
         %p.help-block
           Proposal status:
           = proposal.state_label
+
+        #state_buttons.btn-group.clearfix
+          = proposal.state_buttons
 
 
 
