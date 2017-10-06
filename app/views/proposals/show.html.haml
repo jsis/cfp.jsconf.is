@@ -15,10 +15,10 @@
                   %span.glyphicon.glyphicon-exclamation-sign
                   Delete Proposal
           %p.help-block
+            = pluralize(proposal.ratings.count, 'review')
+            %br
             Proposal status:
             = proposal.public_state
-          %p.help-block
-            = pluralize(proposal.ratings.count, 'review')
 
       .jumbotron
         %h2

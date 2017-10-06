@@ -1,63 +1,94 @@
 #proposal
   .row
     .col-md-12
-      %h1= proposal.title
       .toolbox.pull-right
-        .clearfix
+        .btn-group.clearfix
           - if current_user.organizer_for_event?(event)
             = smart_return_button
-            .clearfix
             =link_to(edit_organizer_event_proposal_path(proposal.event_id, proposal.uuid), class: "btn btn-primary", id: 'edit') do
               %span.glyphicon.glyphicon-edit
               Edit Proposal
-          %p
-            =link_to "Next Proposal", organizer_event_proposal_path(uuid: "PLACEHOLDER"), class: "next-proposal btn btn-primary", data: {"proposal-uuid" => proposal.uuid }
-            .clearfix
-            #state_buttons
-              = proposal.state_buttons
-              - if proposal.organizer_confirm
-                = link_to "Confirm for Speaker", confirm_proposal_path(slug: proposal.event.slug, uuid: proposal), class: "btn btn-primary"
+          =link_to "Next Proposal", organizer_event_proposal_path(uuid: "PLACEHOLDER"), class: "next-proposal btn btn-success", data: {"proposal-uuid" => proposal.uuid }
 
+        #state_buttons.btn-group.clearfix
+          = proposal.state_buttons
 
+        - if proposal.organizer_confirm
+          .btn-group.clearfix
+            = link_to "Confirm for Speaker", confirm_proposal_path(slug: proposal.event.slug, uuid: proposal), class: "btn btn-primary"
 
-  .row
-    #updated_parent.col-md-12
-      %date#updated_subheader= proposal.updated_in_words
-      .tags= proposal.review_tags
-  .row
-    .col-md-4
-      = render partial: 'proposals/contents_wcustom', locals: { proposal: proposal }
+      .jumbotron
+        %h2= proposal.title
 
-    .col-md-4
-      %h3 Other Proposals
-      = render partial: 'other_proposals', locals: { event: event, other_proposals: other_proposals }
-      %h3 Speakers
-      %section
-        = render partial: 'organizer/proposals/speakers', locals: { speakers: proposal.speakers }
-      %h3 Public Comments
-      = render partial: 'proposals/comments', locals: { proposal: proposal, comments: proposal.public_comments }
-    - if proposal.state == 'accepted'
-      %h3 Confirmation Notes
-      = render partial: 'proposals/confirmation_notes', locals: {proposal: proposal, notes: proposal.confirmation_notes}
-    .col-md-4
-      %h3 Tags
-      = render partial: 'shared/proposals/tags_form', locals: { event: event, proposal: proposal }
-      %h3 Review
-      - unless proposal.has_speaker?(current_user)
-        = link_to "#", {id: "rating-tooltip", data: {toggle: "tooltip", placement: "bottom"}, title: rating_tooltip } do
-          %span.glyphicon.glyphicon-question-sign
-      #current_state= proposal.state_label
-      #rating-form
-        = render partial: 'rating_form', locals: { event: event, proposal: proposal, rating: rating }
-      - if proposal.proposal_data?
-        %h3 Video URL
-        = proposal.proposal_data[:video_url]
         %p
-        %h3 Slides URL
-        = proposal.proposal_data[:slides_url]
+          %date#updated_subheader= proposal.updated_in_words
+        %p.tags
+          %span.label.label-default Tags:
+          = proposal.review_tags
+
+
+  .row
+    = render partial: 'proposals/contents_organizer', locals: { proposal: proposal }
+
+    .col-md-4
+      .panel.panel-default
+        .panel-heading
+          %h3.panel-title Other Proposals
+        .panel-body
+          = render partial: 'other_proposals', locals: { event: event, other_proposals: other_proposals }
+
+      .panel.panel-default
+        .panel-heading
+          %h3.panel-title Speakers
+        .panel-body
+          %section
+            = render partial: 'organizer/proposals/speakers', locals: { speakers: proposal.speakers }
+
+      .panel.panel-primary
+        .panel-heading
+          %h4.panel-title
+            Public Comments
+            %small Visible to Speaker, Reviewers & Organizers
+        = render partial: 'proposals/comments', locals: { proposal: proposal, comments: proposal.public_comments }
+
+    - if proposal.state == 'accepted'
+      .panel.panel-primary
+        .panel-heading
+          %h4.panel-title Confirmation Notes
+        .panel-body
+          = render partial: 'proposals/confirmation_notes', locals: {proposal: proposal, notes: proposal.confirmation_notes}
+
+    .col-md-4
+      .panel.panel-primary
+        .panel-heading
+          %h4.panel-title Review
+        .panel-body
+          - unless proposal.has_speaker?(current_user)
+            = link_to "#", {id: "rating-tooltip", data: {toggle: "tooltip", placement: "bottom"}, title: rating_tooltip } do
+              %span.glyphicon.glyphicon-question-sign
+          %p#current_state= proposal.state_label
+
+          #rating-form
+            = render partial: 'rating_form', locals: { event: event, proposal: proposal, rating: rating }
+
+          - if proposal.proposal_data?
+
+            %h3 Video URL
+            = proposal.proposal_data[:video_url]
+            %p
+            %h3 Slides URL
+            = proposal.proposal_data[:slides_url]
+
+          %hr
+          = render partial: 'shared/proposals/tags_form', locals: { event: event, proposal: proposal }
+
       .internal-comments
-        %h3 Internal Comments
-        = render partial: 'proposals/comments', locals: { proposal: proposal, comments: proposal.internal_comments }
+        .panel.panel-primary
+          .panel-heading
+            %h4.panel-title
+              Internal Comments
+              %small Visible to Reviewers & Organizers
+          = render partial: 'proposals/comments', locals: { proposal: proposal, comments: proposal.internal_comments }
   .row
     .col-md-12
       .toolbox.pull-right

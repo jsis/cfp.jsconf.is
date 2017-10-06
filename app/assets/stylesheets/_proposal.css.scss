@@ -77,6 +77,12 @@
       }
     }
   }
+
+  p.custom-field {
+     + p.custom-field {
+      border-top: 1px solid rgba(115,115,115,0.25);
+    }
+  }
 }
 
 #copy-emails {
@@ -119,6 +125,10 @@ ul {
   margin: 14px;
 
   text-align: right;
+
+  .btn-group {
+    display: block;
+  }
 }
 
 .btn.save-comment {

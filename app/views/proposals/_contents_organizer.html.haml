@@ -1,0 +1,36 @@
+.col-md-4
+  .panel.panel-default
+    .panel-heading
+      %h3.panel-title Abstract
+    .panel-body
+      .markdown{ data: { 'field-id' => 'proposal_abstract' } }
+        = proposal.abstract
+
+.col-md-4
+  .panel.panel-default
+    .panel-heading
+      %h3.panel-title Details
+    .panel-body
+      .markdown{ data: { 'field-id' => 'proposal_details' } }
+        = proposal.details
+
+.col-md-4
+  .panel.panel-default
+    .panel-heading
+      %h3.panel-title Pitch
+    .panel-body
+      .markdown{ data: { 'field-id' => 'proposal_pitch' } }
+        =proposal.pitch
+
+- if proposal.custom_fields.any?
+  .col-md-4
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title Custom fields
+      .panel-body
+        - proposal.proposal_data[:custom_fields].select do |key,value|
+          %p.custom-field
+            %strong
+              = key
+              :
+          %div= value
