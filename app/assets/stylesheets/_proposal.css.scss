@@ -83,6 +83,9 @@
       border-top: 1px solid rgba(115,115,115,0.25);
     }
   }
+  .custom-field-value {
+    overflow: hidden;
+  }
 }
 
 #copy-emails {
