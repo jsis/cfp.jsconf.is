@@ -179,19 +179,26 @@ span.disabled-state {
 }
 
 #event_statistics {
-  h3 {
+  h4 {
     margin-bottom: -10px;
+
+    font-weight: 300;
   }
   dl {
     margin-left: 0.5em;
   }
   dt {
-    width: 160px;
+    width: 190px;
+
+    font-size: 18px;
+    font-weight: 300;
 
     text-align: left;
   }
   dd {
-    margin-left: 140px;
+    margin-left: 0;
+
+    font-size: 18px;
   }
 }
 
