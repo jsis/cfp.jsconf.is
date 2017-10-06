@@ -30,7 +30,5 @@
       .panel-body
         - proposal.proposal_data[:custom_fields].select do |key,value|
           %p.custom-field
-            %strong
-              = key
-              :
+            %strong= key
           %div= value
