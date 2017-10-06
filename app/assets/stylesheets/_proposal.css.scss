@@ -11,9 +11,6 @@
 }
 
 #proposal {
-  input#email {
-    width: 80%;
-  }
   select#rating_score {
     display: inline;
 
@@ -22,8 +19,7 @@
 
   span {
     &.status {
-      display: block;
-      float: right;
+      display: inline-block;
 
       margin: 0.3em 6.5em 0.4em 0;
     }
@@ -119,10 +115,6 @@ ul {
   }
 }
 
-.status.label {
-  font-size: 1.3em;
-}
-
 .twitter-share-button {
   margin-top: 2.3em;
   margin-left: 0.5em;
@@ -130,10 +122,6 @@ ul {
 
 .toolbox {
   margin: 14px;
-}
-
-input#email {
-  width: 275px !important;
 }
 
 .btn.save-comment {
