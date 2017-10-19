@@ -77,8 +77,8 @@
     color: #737373;
   }
 
-  date,
-  .dates span {
+  .dates span,
+  date {
     display: inline-block;
 
     font-size: 0.8em;
@@ -87,7 +87,8 @@
     text-align: right;
 
     color: #737373;
-
+  }
+  date {
      + date {
       margin-left: 10px;
       padding-left: 10px;

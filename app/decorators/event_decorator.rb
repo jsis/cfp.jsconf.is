@@ -21,7 +21,7 @@ class EventDecorator < ApplicationDecorator
       h.event_path(object.slug)
     end
 
-    h.link_to h.pluralize(object.proposals.count, 'proposal'), path
+    h.link_to object.name, path
   end
 
   def cfp_days_remaining
