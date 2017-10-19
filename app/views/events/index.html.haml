@@ -1,6 +1,9 @@
 - events.each do |event|
   .event
     %h1
-      = event
+      %a{ href: event.url }
+        = event
       %small= event.status
-    = event.path_for(current_user)
+      %small.date.start #{event.start_date.to_s(:month_day_year) unless event.start_date.blank?}
+      %small.date.end #{event.end_date.to_s(:month_day_year) unless event.end_date.blank?}
+    -# = event.path_for(current_user)
