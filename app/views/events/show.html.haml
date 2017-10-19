@@ -10,6 +10,8 @@
           %date.start #{event.start_date.to_s(:month_day_year) unless event.start_date.blank?}
           %span to
           %date.end #{event.end_date.to_s(:month_day_year) unless event.end_date.blank?}
+      %p
+        %a{ href: event.url }#{event.url}
   .col-md-12
   .col-md-8
     .markdown
@@ -29,9 +31,7 @@
             = time_ago_in_words(event.closes_at)
             left
           to submit your proposal!
-      %p
-        Check out the conference website at
-        %a{ href: event.url }#{event.url}
+
     -# - if event.proposals.count > 5
     -#   .stats
     -#     %h2 CFP Stats
