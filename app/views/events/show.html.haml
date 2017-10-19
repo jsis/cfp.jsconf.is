@@ -29,6 +29,9 @@
             = time_ago_in_words(event.closes_at)
             left
           to submit your proposal!
+      %p
+        Check out the conference website at
+        %a{ href: event.url }#{event.url}
     -# - if event.proposals.count > 5
     -#   .stats
     -#     %h2 CFP Stats
