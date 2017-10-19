@@ -69,17 +69,20 @@
   p.tags {
     font-size: 16px;
   }
-  .item {
+  .dates {
     display: block;
 
-    font-size: 0.8em;
+    font-size: 50%;
 
     color: #737373;
   }
-  date {
+
+  date,
+  .dates span {
     display: inline-block;
 
     font-size: 0.8em;
+    font-weight: 300;
 
     text-align: right;
 

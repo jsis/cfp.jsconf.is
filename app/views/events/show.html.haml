@@ -5,12 +5,10 @@
     .jumbotron
       %h1
         = event
-        %small.item
-          Status:
-          %span= event.status
+        %small= event.status
         %small.item.dates
           %date.start #{event.start_date.to_s(:month_day_year) unless event.start_date.blank?}
-          %span.item to
+          %span to
           %date.end #{event.end_date.to_s(:month_day_year) unless event.end_date.blank?}
   .col-md-12
   .col-md-8
