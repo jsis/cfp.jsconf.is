@@ -1,10 +1,18 @@
 .row
-  .col-md-11
-    %h1
-      = event
-      %small= event.status
-  .col-md-1
-    .share.pull-right= event.tweet_button
+  .col-md-12
+    .toolbox.pull-right
+      = event.tweet_button
+    .jumbotron
+      %h1
+        = event
+        %small
+          Status:
+          %span= event.status
+        %small.dates
+          %date.start #{event.start_date.to_s(:month_day_year) unless event.start_date.blank?}
+          %span to
+          %date.end #{event.end_date.to_s(:month_day_year) unless event.end_date.blank?}
+  .col-md-12
   .col-md-8
     .markdown
       - if event.closed?

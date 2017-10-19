@@ -56,28 +56,6 @@
     }
   }
 
-  .jumbotron {
-    p.tags {
-      font-size: 16px;
-    }
-    date {
-      display: inline-block;
-
-      font-size: 0.8em;
-
-      text-align: right;
-
-      color: #737373;
-
-       + date {
-        margin-left: 10px;
-        padding-left: 10px;
-
-        border-left: 1px solid rgba(115, 115, 115, 0.25);
-      }
-    }
-  }
-
   p.custom-field {
      + p.custom-field {
       border-top: 1px solid rgba(115,115,115,0.25);
@@ -85,6 +63,27 @@
   }
   .custom-field-value {
     overflow: hidden;
+  }
+}
+.jumbotron {
+  p.tags {
+    font-size: 16px;
+  }
+  date {
+    display: inline-block;
+
+    font-size: 0.8em;
+
+    text-align: right;
+
+    color: #737373;
+
+     + date {
+      margin-left: 10px;
+      padding-left: 10px;
+
+      border-left: 1px solid rgba(115, 115, 115, 0.25);
+    }
   }
 }
 
@@ -117,11 +116,6 @@ ul {
       border-bottom: none;
     }
   }
-}
-
-.twitter-share-button {
-  margin-top: 2.3em;
-  margin-left: 0.5em;
 }
 
 .toolbox {
