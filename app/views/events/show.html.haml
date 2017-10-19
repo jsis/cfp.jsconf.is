@@ -22,6 +22,9 @@
   .col-md-4
     - if event.open?
       %p= link_to 'Submit a proposal', new_proposal_path(slug: event.slug), class: 'btn btn-primary'
+      %p
+        If you have any trouble submitting a proposal, don't hesitate to contact us at
+        = mail_to event.contact_email
       - if event.closes_at?
         %p
           Closes at
