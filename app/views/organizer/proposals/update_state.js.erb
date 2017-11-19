@@ -3,7 +3,7 @@ if ($('table#organizer-proposals').length > 0) {
 
   var row = $('tr[data-proposal-id=<%= proposal.id %>]');
 
-  row.find(".actions .btn").toggleClass("hidden");
+  row.find(".actions .btn").toggleClass("disabled");
 
   row.find(".status span").remove();
   row.find(".status").append('<%=j proposal.state_label(small: true) %>');

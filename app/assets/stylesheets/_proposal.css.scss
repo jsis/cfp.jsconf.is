@@ -1,3 +1,10 @@
+
+.alert-viewer-mode {
+  margin-bottom: 0px !important;
+  padding: 14px 0 !important;
+  line-height: 34px !important;
+}
+
 .proposals {
   .event-title {
     font-weight: bolder;
@@ -66,6 +73,8 @@
   }
 }
 .jumbotron {
+  position: relative;
+
   p.tags {
     font-size: 16px;
   }
@@ -95,6 +104,12 @@
 
       border-left: 1px solid rgba(115, 115, 115, 0.25);
     }
+  }
+
+  #state_buttons {
+    position: absolute;
+    left: 8px;
+    bottom: 8px;
   }
 }
 
@@ -133,6 +148,13 @@ ul {
   margin: 14px;
 
   text-align: right;
+
+  &.fixed-top-right {
+    position: fixed;
+    top: 70px;
+    right: 0;
+    z-index: 1040;
+  }
 
   .btn-group {
     display: block;
