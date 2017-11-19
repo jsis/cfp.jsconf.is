@@ -3,6 +3,10 @@
     .col-md-12
       .toolbox.fixed-top-right
         .btn-group
+          %span.btn.btn-default.disabled
+            Proposals rated:
+            %span= event.proposals_rated_message
+            %span= event.proposals.unrated.not_withdrawn.count
           =link_to(reviewer_event_proposals_path, class: "btn btn-primary") do
             &laquo; Return to Proposals
           =link_to "Next Proposal", reviewer_event_proposal_path(uuid: "PLACEHOLDER"), class: "next-proposal btn btn-success", data: {"proposal-uuid" => proposal.uuid }
