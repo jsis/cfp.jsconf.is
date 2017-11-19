@@ -13,58 +13,55 @@
             %dd= event.proposals.unrated.not_withdrawn.count
   .row
     .col-md-12
-      .panel.panel-default
-        .panel-body
-          .row
-            .col-md-10
-              %small.table-top-hint <em>Hint:</em> Hold <kbd>shift</kbd> and click sorting arrows to sort by multiple columns
-            .col-md-2
-              %button.btn.btn-primary.btn-sm.pull-right#sort_reset Reset Sort Order
+      .row
+        .col-md-12
+          %button.btn.btn-primary.btn-sm.pull-right#sort_reset Reset Sort Order
+          %small.table-top-hint <em>Hint:</em> Hold <kbd>shift</kbd> and click sorting arrows to sort by multiple columns
 
-        %table#reviewer-proposals.datatable.table.table-striped.proposal-list
-          %thead
-            %tr
-              %th
-              %th
-              %th
-              %th
-              %th
-              %th
-              %th
-              %th
-              %th
-              %th
-            %tr
-              %th Score
-              %th Your<br/>Score
-              %th Ratings
-              %th Title
-              %th Proposal<br/>Tags
-              %th Reviewer<br/>Tags
-              %th Comments
-              %th Submitted On
-              %th Updated At
-              %th Rated?
-          %tbody
-            - proposals.each do |proposal|
-              %tr{ class: "proposal-#{proposal.id}", data: { 'proposal-id' => proposal.id, 'proposal-uuid' => proposal.uuid } }
-                %td.average-rating
-                  = proposal.average_rating if proposal.score_for(current_user).present?
-                %td.my-rating
-                  = proposal.score_for(current_user)
-                %td.ratings-count
-                  = proposal.ratings.size
-                %td.title
-                  = proposal.title_link
-                %td.tags
-                  = proposal.tags
-                %td.review-tags
-                  = proposal.review_tags
-                %td.comment-count
-                  = proposal.comment_count
-                %td.created-at
-                  = proposal.created_at
-                %td.updated-at
-                  = proposal.updated_at
-                %td.is-rated
-                  = proposal.ratings.present?
+      %table#reviewer-proposals.datatable.table.table-striped.proposal-list
+        %thead
+          %tr
+            %th
+            %th
+            %th
+            %th
+            %th
+            %th
+            %th
+            %th
+            %th
+            %th
+          %tr
+            %th Score
+            %th Your<br/>Score
+            %th Ratings
+            %th Title
+            %th Proposal<br/>Tags
+            %th Reviewer<br/>Tags
+            %th Comments
+            %th Submitted On
+            %th Updated At
+            %th Rated?
+        %tbody
+          - proposals.each do |proposal|
+            %tr{ class: "proposal-#{proposal.id}", data: { 'proposal-id' => proposal.id, 'proposal-uuid' => proposal.uuid } }
+              %td.average-rating
+                = proposal.average_rating if proposal.score_for(current_user).present?
+              %td.my-rating
+                = proposal.score_for(current_user)
+              %td.ratings-count
+                = proposal.ratings.size
+              %td.title
+                = proposal.title_link
+              %td.tags
+                = proposal.tags
+              %td.review-tags
+                = proposal.review_tags
+              %td.comment-count
+                = proposal.comment_count
+              %td.created-at
+                = proposal.created_at
+              %td.updated-at
+                = proposal.updated_at
+              %td.is-rated
+                = proposal.ratings.present?

@@ -65,7 +65,7 @@ module ApplicationHelper
   def copy_email_btn
     link_to 'Copy Speaker Email Addresses To Clipboard', '#',
             data: {url: organizer_event_speaker_emails_path(@event)},
-            class: "btn btn-primary",
+            class: "btn btn-info",
             id: 'copy-filtered-speaker-emails'
   end
 

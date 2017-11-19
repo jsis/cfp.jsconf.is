@@ -1,16 +1,15 @@
 #organizer-proposals-index
-  .container
-    .row
-      .col-md-6
+  .row
+    .col-md-12
+      .jumbotron
         %h2
           = event
           Proposals
-        = copy_email_btn
 
-      .col-md-2.col-md-offset-4
-        .btn_group
+        .btn-group
           =link_to(organizer_event_path(event), class: "btn btn-primary") do
             &laquo; Return to Event
+          = copy_email_btn
           =link_to organizer_event_proposals_path(format: "csv"), id: "download_link", class: "btn btn-info" do
             %span.glyphicon.glyphicon-download-alt
             Download as CSV
