@@ -33,7 +33,7 @@ class ProposalDecorator < ApplicationDecorator
 
   def review_tags
     object.review_tags.map { |tag|
-      h.content_tag :span, tag, class: 'label label-success' }.join("\n").html_safe
+      h.content_tag :span, tag, class: 'label label-warning' }.join("\n").html_safe
   end
 
   def tags
