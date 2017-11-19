@@ -1,4 +1,31 @@
 
+#organizer-proposals-index,
+#reviewer-proposal-index {
+  width: calc(100vw - 40px);
+  position: absolute;
+  top: 90px;
+  left: 20px;
+  right: 20px;
+
+  .table-top-hint {
+    display: block;
+    text-align: center;
+  }
+
+  .datatable.proposal-list {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .dataTables_info {
+    text-align: center;
+  }
+}
+
+#organizer-proposals-index {
+  top: 150px;
+}
+
 .alert-viewer-mode {
   margin-bottom: 0px !important;
   padding: 14px 0 !important;

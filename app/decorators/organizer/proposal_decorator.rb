@@ -10,11 +10,11 @@ class Organizer::ProposalDecorator < ProposalDecorator
   end
 
   def state_buttons(states: nil, show_finalize: true, small: false)
-    btns = buttons.map do |text, state, btn_type, hidden|
+    btns = buttons.map do |text, state, btn_type, disabled|
       if states.nil? || states.include?(state)
         state_button text,
           update_state_path(state),
-          hidden: hidden,
+          disabled: disabled,
           type: btn_type,
           small: small
       end
@@ -70,9 +70,9 @@ class Organizer::ProposalDecorator < ProposalDecorator
   private
 
   def state_button(text, path, opts = {})
-    opts = { method: :post, remote: :true, type: 'btn-default', hidden: false }.merge(opts)
+    opts = { method: :post, remote: :true, type: 'btn-default', disabled: false }.merge(opts)
 
-    opts[:class] = "#{opts[:class]} btn #{opts[:type]} " + (opts[:hidden] ? 'hidden' : '')
+    opts[:class] = "#{opts[:class]} btn #{opts[:type]} " + (opts[:disabled] ? 'disabled' : '')
     opts[:class] += ' btn-xs' if opts[:small]
     h.link_to(text, path, opts)
   end
@@ -86,7 +86,7 @@ class Organizer::ProposalDecorator < ProposalDecorator
                      'and emails will be sent to all speakers. Are you sure you want to continue?'
                  },
                  type: 'btn-warning',
-                 hidden:  object.finalized? || object.draft?,
+                 disabled:  object.finalized? || object.draft?,
                  remote: false,
                  id: 'finalize')
   end
