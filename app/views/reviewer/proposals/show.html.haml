@@ -18,6 +18,9 @@
         %p.tags
           %span.label.label-default Tags:
           = proposal.tags
+        %p.tags
+          %span.label.label-default Review tags:
+          = proposal.review_tags
 
 
   = render partial: 'proposals/contents_reviewer', locals: { proposal: proposal }
