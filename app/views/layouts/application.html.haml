@@ -32,7 +32,7 @@
           - else
             = link_to "#{Rails.application.class.parent_name}", events_path, class: 'navbar-brand'
 
-        .collapse.navbar-collapse
+        .navbar-collapse
           %ul.nav.navbar-nav
           - if user_signed_in?
             %ul.nav.navbar-nav.navbar-right
