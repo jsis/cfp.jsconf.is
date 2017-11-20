@@ -173,6 +173,8 @@ ul {
 }
 
 .toolbox {
+  position: relative;
+  z-index: 1040;
   text-align: right;
 
   @media screen and (min-width: 1000px) {
@@ -182,7 +184,6 @@ ul {
       position: fixed;
       top: 70px;
       right: 0;
-      z-index: 1040;
     }
   }
 

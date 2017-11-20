@@ -1,7 +1,7 @@
 #proposal.organizer
   .row
     .col-md-12
-      .toolbox.fixed-top-right
+      .toolbox.fixed-top-right.clearfix
         .btn-group.clearfix
           - if current_user.organizer_for_event?(event)
             = smart_return_button
