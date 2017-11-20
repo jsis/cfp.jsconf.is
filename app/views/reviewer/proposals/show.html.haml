@@ -19,6 +19,9 @@
           %span.label.label-default Tags:
           = proposal.tags
         %p.tags
+          - unless proposal.draft?
+            %span.label.label-default State:
+              = proposal.state_label
           %span.label.label-default Review tags:
           = proposal.review_tags
 
