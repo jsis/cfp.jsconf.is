@@ -7,6 +7,11 @@
   background-color: #f3df49;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
 
+  @media screen and (max-width: 1000px) {
+    position: static !important;
+    margin-bottom: 0 !important;
+  }
+
   .navbar-header > .navbar-brand {
     padding: 10px 10px;
 

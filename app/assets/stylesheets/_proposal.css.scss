@@ -173,15 +173,17 @@ ul {
 }
 
 .toolbox {
-  margin: 14px;
-
   text-align: right;
 
-  &.fixed-top-right {
-    position: fixed;
-    top: 70px;
-    right: 0;
-    z-index: 1040;
+  @media screen and (min-width: 1000px) {
+    margin: 14px;
+
+    &.fixed-top-right {
+      position: fixed;
+      top: 70px;
+      right: 0;
+      z-index: 1040;
+    }
   }
 
   .btn-group {
